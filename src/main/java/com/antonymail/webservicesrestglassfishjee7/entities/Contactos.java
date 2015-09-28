@@ -24,9 +24,27 @@ import javax.xml.bind.annotation.XmlRootElement;
 //BB..DD.Agenda. Tabla contactos...
 
 //GET
-//http://localhost:8080/WebServicesRESTGlassFishJEE7/webresources/contacto--Devuelve todos
-//http://localhost:8080/WebServicesRESTGlassFishJEE7/webresources/contacto/count--Devuelve el número total
-//http://localhost:8080/WebServicesRESTGlassFishJEE7/webresources/contacto/3--Devuelve el serverdeId:3
+//http://localhost:8080/WebServicesRESTGlassFishJEE7/webresources/contactos--Devuelve todos
+//http://localhost:8080/WebServicesRESTGlassFishJEE7/webresources/contactos/count--Devuelve el número total
+//http://localhost:8080/WebServicesRESTGlassFishJEE7/webresources/contactos/3--Devuelve el serverdeId:3
+
+/*UTILIZANDO RESTCLIENT DE FIREFOX:
+http://localhost:8080/WebServicesRESTGlassFishJEE7/webresources/contactos
+  
+    METODO DELETE
+        http://localhost:8080/WebServicesRESTGlassFishJEE7/webresources/contactos/3--Borra el registro con id 3
+
+    METODO PUT
+        http://localhost:8080/WebServicesRESTGlassFishJEE7/webresources/contactos/5--Para modificar el registro id 5    
+            ..En el body se copia el registro y se le añaden las modificaciones.
+
+    METODO POST
+        http://localhost:8080/WebServicesRESTGlassFishJEE7/webresources/contactos--Para dar de alta un registro   
+            ..En el body se copia el registro y se le añaden las modificaciones o cambios con respecto al que se ha copiado.
+            ..El método devuelve además el id del nuevo registro creado.
+        
+
+*/      
 
 
 
