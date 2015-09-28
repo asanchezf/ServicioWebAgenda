@@ -108,6 +108,8 @@ public class ContactosFacadeREST extends AbstractFacade<Contactos> {
     }
 
     
+    
+    
     @GET
     @Path("{from}/{to}")
     @Produces({"application/json"})
