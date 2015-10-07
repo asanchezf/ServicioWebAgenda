@@ -30,6 +30,11 @@ public abstract class AbstractFacade<T> {
     }*/
 
     public String create(T entity) {
+       
+        
+        
+        
+        
         
         try{
             
@@ -38,6 +43,7 @@ public abstract class AbstractFacade<T> {
         //em.getTransaction().begin();
         //em.persist(entity);
         //em.getTransaction().commit();
+            
         //NECESITAMOS DEVOLVER EL ID DEL REGISTRO CREADO PARA QUE LO TRATE EL CLIENTE
         EntityManager em=getEntityManager();
         //getEntityManager().persist(entity);

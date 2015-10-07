@@ -94,10 +94,10 @@ public class Contactos implements Serializable {
     @Column(name = "Id", nullable = false)
     private Integer id;
    
-    @Basic(optional = false)
-    @NotNull
-    //@Column(name = "AndroidID")
-    @Column(name = "AndroidID", nullable = false)
+    //@Basic(optional = false)
+    //@NotNull
+    @Column(name = "AndroidID")
+    //@Column(name = "AndroidID", nullable = false)
     private Integer androidID;
     //@Basic(optional = false)
     //@NotNull
