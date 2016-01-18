@@ -31,11 +31,6 @@ public abstract class AbstractFacade<T> {
 
     public String create(T entity) {
        
-        
-        
-        
-        
-        
         try{
             
          //DA ERROR SI PONEMOS TRANSACCIONES....    
@@ -113,8 +108,28 @@ public abstract class AbstractFacade<T> {
       }
     }
 
+     /////////////////////////////////////////////////////
+    //Nuevo. Borrar registros por propietario:
+    
+     public String removeAllByPropietario(T entity) {
+        try{
+        
+        //EntityManager em=getEntityManager();
+        //em.getTransaction().begin();
+        //em.remove(em.merge(entity));    
+        //em.getTransaction().commit();
+        getEntityManager().remove(getEntityManager().merge(entity));
+        return "ok";
+        }
+        
+        catch(Exception e){
+            //Devolvemos el mensaje de error en el idioma en que se ejecute la app, si está disponible
+            return e.getLocalizedMessage();
+      }
+    }
     
     
+    /////////////////////////////////////////////////////
     public T find(Object id) {
         return getEntityManager().find(entityClass, id);
     }

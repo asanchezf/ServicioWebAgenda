@@ -21,7 +21,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 
-//Se ha cambiado el path para hacerlo más corto....
+//Se ha cambiado el path para hacerlo mÃ¡s corto....
 @Stateless
 @Path("contactos")
 public class ContactosFacadeREST extends AbstractFacade<Contactos> {
@@ -38,7 +38,8 @@ public class ContactosFacadeREST extends AbstractFacade<Contactos> {
 
     
     
-    //Se cambia el tipo de recurso que consume. Ahora solo será JSon. Por defecto viene también XML. Y se añade el tipo de recurso que produce. Será también Json
+    //Se cambia el tipo de recurso que consume. Ahora solo serÃ¡ JSon. Por defecto viene tambiÃ©n XML. Y se aÃ±ade el tipo de recurso que produce. SerÃ¡ tambiÃ©n Json
+    //ALTA DE REGISTRO
     @POST
     @Override
     @Consumes(MediaType.APPLICATION_JSON)
@@ -51,7 +52,7 @@ public class ContactosFacadeREST extends AbstractFacade<Contactos> {
         return String.format(JSON_RESPONSE,entity.getId(),entity.getAndroidID(),"INSERT",resultado);
     }
 
-    
+    //MODIFICACIÓN DE UN REGISTRO
     @PUT
     @Path("{id}")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -73,10 +74,30 @@ public class ContactosFacadeREST extends AbstractFacade<Contactos> {
         
         String JSON_PARA_DELETE="{\"serverId\":%d, \"operacion\":\"%s\", \"resultado\":\"%s\"}";
         
-        //La respuesta de remove será distinta pq no necesita tanta información de vuelta...
+        //La respuesta de remove serÃ¡ distinta pq no necesita tanta informaciÃ³n de vuelta...
         return String.format(JSON_PARA_DELETE,id,"DELETE",resultado);
     }
 
+    
+     ////////////////////////////////////////DA ERROR//////////////////////
+    ///Nuevo.Para BORRADO por propietario..DA ERROR
+    @DELETE
+    @Path("borrarporpropietario/{owner}")
+    @Produces(MediaType.APPLICATION_JSON)
+    //@Produces({"application/json"})
+    public String removeAllByPropietario(@PathParam("owner")String owner) {
+        //String resultado=super.remove(super.find(id));
+        //List<Contactos> resultado=super.removeAllByPropietario(find(Owner));
+        String resultado="Borrado";
+        //return super.removeAllByPropietario(Contactos);
+        String JSON_PARA_DELETE="{\"serverId\":%d, \"operacion\":\"%s\", \"resultado\":\"%s\"}";
+        
+        //La respuesta de remove serÃ¡ distinta pq no necesita tanta informaciÃ³n de vuelta...
+        return String.format(JSON_PARA_DELETE,owner,"DELETE",resultado);
+    }
+    /////////////////////////////////////
+    
+    
     @GET
     @Path("{id}")
     @Produces({"application/json"})
@@ -85,7 +106,7 @@ public class ContactosFacadeREST extends AbstractFacade<Contactos> {
     }
 
     //////////////////////////////////////////////////////////////
-    ///Nuevo.Para búsquedas por propietario
+    ///Nuevo.Para bÃºsquedas por propietario
     
       @GET
     @Override

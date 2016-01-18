@@ -30,6 +30,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 //GET
 //http://localhost:8080/WebServicesRESTGlassFishJEE7/webresources/contactos--Devuelve todos
+//http://localhost:8080/WebServicesRESTGlassFishJEE7/webresources/contactos/propietario/Antonio--Devuelve los registros cuyo propietario es Antonio
 //http://localhost:8080/WebServicesRESTGlassFishJEE7/webresources/contactos/count--Devuelve el número total
 //http://localhost:8080/WebServicesRESTGlassFishJEE7/webresources/contactos/3--Devuelve el serverdeId:3
 
@@ -82,6 +83,9 @@ RESPUESTA
     @NamedQuery(name = "Contactos.findByObservaciones", query = "SELECT c FROM Contactos c WHERE c.observaciones = :observaciones"),
     @NamedQuery(name = "Contactos.findByAndroidID", query = "SELECT c FROM Contactos c WHERE c.androidID = :androidID"),
     @NamedQuery(name = "Contactos.findByOwner", query = "SELECT c FROM Contactos c WHERE c.owner = :owner")
+        
+    //@NamedQuery(name = "Contactos.removeAllByPropietario", query = "DELETE c FROM Contactos c WHERE c.owner = :owner")    
+        
 })
 
 
